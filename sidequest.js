@@ -9,10 +9,10 @@
 const sideQuestPhotos = [
   { src: "sidequest/01.jpg", alt: "Side quest photo 1" },
   { src: "sidequest/02.jpg", alt: "Side quest photo 2" },
-  { src: "sidequest/03.Jpg", alt: "Side quest photo 3" },
-  { src: "sidequest/04.JPG", alt: "Side quest photo 4" },
-  { src: "sidequest/05.JPG", alt: "Side quest photo 5" },
-  { src: "sidequest/06.JPG", alt: "Side quest photo 6" },
-  { src: "sidequest/07.JPG", alt: "Side quest photo 7" },
-  { src: "sidequest/08.JPG", alt: "Side quest photo 8" }
+  { src: "sidequest/03.jpg", alt: "Side quest photo 3" },
+  { src: "sidequest/04.jpg", alt: "Side quest photo 4" },
+  { src: "sidequest/05.jpg", alt: "Side quest photo 5" },
+  { src: "sidequest/06.jpg", alt: "Side quest photo 6" },
+  { src: "sidequest/07.jpg", alt: "Side quest photo 7" },
+  { src: "sidequest/08.jpg", alt: "Side quest photo 8" }
 ];
