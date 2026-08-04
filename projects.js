@@ -122,7 +122,7 @@ const projects = [
     category: "Spec Work",
     role: "Creative",
     year: "2024",
-    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810596/liquid_death_nyd2qv.jpg",
+    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812907/Liquid-Death-Logo_xrecg8.jpg",
     fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810596/liquid_death_nyd2qv.jpg",
     gallery: [
     ],
