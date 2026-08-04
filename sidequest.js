@@ -7,12 +7,12 @@
    Order here = deck order (front to back).
    ========================================================= */
 const sideQuestPhotos = [
-  { src: "sidequest/01.jpg", alt: "Side quest photo 1" },
-  { src: "sidequest/02.jpg", alt: "Side quest photo 2" },
-  { src: "sidequest/03.jpg", alt: "Side quest photo 3" },
-  { src: "sidequest/04.jpg", alt: "Side quest photo 4" },
-  { src: "sidequest/05.jpg", alt: "Side quest photo 5" },
-  { src: "sidequest/06.jpg", alt: "Side quest photo 6" },
-  { src: "sidequest/07.jpg", alt: "Side quest photo 7" },
-  { src: "sidequest/08.jpg", alt: "Side quest photo 8" }
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809075/01_kvqfzq.jpg", alt: "Side quest photo 1" },
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809074/02_zbpexw.jpg", alt: "Side quest photo 2" },
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809082/03_prg2ee.jpg", alt: "Side quest photo 3" },
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809067/04_xx6yet.jpg", alt: "Side quest photo 4" },
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809073/05_fzgsqr.jpg", alt: "Side quest photo 5" },
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809076/06_i0qw5i.jpg", alt: "Side quest photo 6" },
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809077/07_gwyhxj.jpg", alt: "Side quest photo 7" },
+  { src: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809073/08_a6lccm.jpg", alt: "Side quest photo 8" }
 ];
