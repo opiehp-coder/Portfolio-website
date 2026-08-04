@@ -66,27 +66,28 @@ const projects = [
     gallery: [
       "images/ht_box.jpg",
       "images/ht_pos.jpg",
-      "images/ht_anchor.jpg",
-      "images/ht_lantern.jpg",
-      "images/ht_oar.jpg"
+      "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812251/ht_anchor_udwzyd.jpg",
+      "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812251/ht_lantern_nmjkwo.jpg",
+      "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812251/ht_oar_agsxkw.jpg"
     ],
     description: "Perth has a strong naval history and long ties with the United States Navy. I believe every product should have a story. This is why I have used naval influence as the foundation for this wine. The design is inspired by U.S. Navy uniforms, topographic maps and traditional navigational instruments. It also draws from 1980s jazz posters, which visually complement the era of the uniforms and help shape the overall aesthetic of the brand."
   },
   {
     id: "03",
-    title: "LOAF 2 LARGER",
-    subheading: "PRODUCT / PERTH",
+    title: "Biggie Slice",
+    subheading: "BRAND / PERTH",
     category: "Spec Work",
     role: "Designer, Copywriting",
     year: "2026",
-    thumbImage: "https://picsum.photos/seed/editorial-03/200/260",
-    fullImage: "https://picsum.photos/seed/editorial-03/1400/900",
+    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810964/biggie_slice_logo_r5oe1o.jpg",
+    fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810964/biggie_slice_logo_r5oe1o.jpg",
     gallery: [
-      "https://picsum.photos/seed/editorial-03-a/700/900",
-      "https://picsum.photos/seed/editorial-03-b/700/900",
-      "https://picsum.photos/seed/editorial-03-c/700/900"
+      "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810994/pizza_box_black_bg_mfg1xs.jpg",
+      "https://res.cloudinary.com/owbjvb3x/image/upload/v1785811030/menu_in_context_u2bpvt.jpg",
+      "https://res.cloudinary.com/owbjvb3x/image/upload/v1785811306/napkin_lpggkw.jpg",
+      "https://res.cloudinary.com/owbjvb3x/image/upload/v1785811102/close_upon_the_wall_dfnype.jpg"
     ],  
-    description: "A seasonal campaign built around structured silhouettes and heavier fabrics. Set design leaned on cold-toned interiors to let the garments carry the color story."
+    description: "Perth has pizza, but it doesn’t have a pizza shop that both sells by the slice nor brings the NYC atmosphere. This is where Biggie Slice fills the market gap. I have done a full branding for Biggie Slice as a speculative project."
   },
   {
     id: "04",
@@ -95,8 +96,8 @@ const projects = [
     category: "Education",
     role: "Student",
     year: "2026",
-    thumbImage: "images/award-group.jpg",
-    fullImage: "images/award-group.jpg",
+    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809067/04_xx6yet.jpg",
+    fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809067/04_xx6yet.jpg",
     gallery: [
       "images/brief_1.jpg",
        { src: "images/brief_2.jpg", award: { type: "best_in_book", label: "BEST IN BOOK" } },
@@ -117,18 +118,15 @@ const projects = [
   {
     id: "05",
     title: "LIQUID DEATH",
-    subheading: "CREATIVE / PERTH",
+    subheading: "PRODUCT / PERTH",
     category: "Spec Work",
     role: "Creative",
     year: "2024",
-    thumbImage: "https://picsum.photos/seed/editorial-05/200/260",
-    fullImage: "https://picsum.photos/seed/editorial-05/1400/900",
+    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810596/liquid_death_nyd2qv.jpg",
+    fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810596/liquid_death_nyd2qv.jpg",
     gallery: [
-      "https://picsum.photos/seed/editorial-05-a/700/900",
-      "https://picsum.photos/seed/editorial-05-b/700/900",
-      "https://picsum.photos/seed/editorial-05-c/700/900"
     ],
-    description: "Shot at dawn along an open coastline, this series plays with negative space and a near-empty horizon line to isolate the subject and the garments completely."
+    description: "I have been a fan of Liquid Death’s advertising and collaborations for a long time. So I decided to make my own collaboration between them and Sesame Street. In this project I utilized Google’s Gemini to turn my drawings into 3d models."
   },
 
 ];
