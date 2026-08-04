@@ -43,7 +43,7 @@ const projects = [
     category: "Spec Work",
     role: "Designer",
     year: "2023",
-    thumbImage: "images/nk_card.jpg",
+    thumbImage: "images/nk_logo.jpg",
     fullImage: "images/nk_card.jpg",
     gallery: [
       "images/nk_logo.jpg",
@@ -61,7 +61,7 @@ const projects = [
     category: "Spec Work",
     role: "Designer",
     year: "2025",
-    thumbImage: "images/ht_three.jpg",
+    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812680/portfolio_logo_hidden_treasure_vqhurb.svg",
     fullImage: "images/ht_three.jpg",
     gallery: [
       "images/ht_box.jpg",
@@ -96,8 +96,8 @@ const projects = [
     category: "Education",
     role: "Student",
     year: "2026",
-    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812591/award-group_znuz50.jpg",
-    fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809457/award_school_logo_j3pd4d.jpg",
+    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809457/award_school_logo_j3pd4d.jpg",
+    fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812591/award-group_znuz50.jpg",
     gallery: [
       "images/brief_1.jpg",
        { src: "images/brief_2.jpg", award: { type: "best_in_book", label: "BEST IN BOOK" } },
