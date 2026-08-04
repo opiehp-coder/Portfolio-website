@@ -96,7 +96,7 @@ const projects = [
     category: "Education",
     role: "Student",
     year: "2026",
-    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809457/award_school_logo_j3pd4d.jpg",
+    thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812591/award-group_znuz50.jpg",
     fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809457/award_school_logo_j3pd4d.jpg",
     gallery: [
       "images/brief_1.jpg",
