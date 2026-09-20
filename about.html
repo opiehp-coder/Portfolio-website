@@ -159,6 +159,43 @@
     animation:bounceDown 1.8s ease-in-out infinite;
   }
 
+  /* ---------- RESUME DOWNLOAD BUTTON ---------- */
+  .resume-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    align-self:flex-start;
+    margin-top:6px;
+    padding:11px 22px;
+    border:1.5px solid var(--deep-blue);
+    border-radius:9999px;
+    color:var(--deep-blue);
+    background:transparent;
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:background-color .25s ease, color .25s ease;
+  }
+
+  .resume-btn svg{
+    width:14px;
+    height:14px;
+    flex:0 0 auto;
+  }
+
+  .resume-btn:hover{
+    background:var(--deep-blue);
+    color:var(--white);
+  }
+
+  .resume-btn:focus-visible{
+    outline:2px solid var(--deep-blue);
+    outline-offset:3px;
+  }
+
   @keyframes bounceDown{
     0%, 100%{ transform:translateY(0); }
     50%{ transform:translateY(4px); }
@@ -432,13 +469,18 @@
       <div class="eyebrow">Hugh Opie</div>
       <h1 class="page-title">A Little About Me</h1>
       <p class="page-copy">
-        I'm a copywriter and visual designer working across advertising,
-        brand identity, and fashion.
+        I'm a copywriter. Trained through Award School, now interning at
+        Rare, the agency that won WA Agency of the Year in 2021, learning
+        off people who actually know what they're doing.
       </p>
       <p class="page-copy">
-        Currently based in Perth, taking on select copywriting and
-        advertising projects. Get in touch to collaborate.
+        I've got a design background too, so I'm usually thinking about
+        how an idea looks while I'm still writing it. But copy comes first.
       </p>
+      <a href="Hugh_Opie_Resume.pdf" class="resume-btn" download>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+        Download Résumé
+      </a>
       <div class="scroll-hint">
         <span>Scroll for education &amp; experience</span>
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -555,6 +597,9 @@
       </a>
       <a href="mailto:hugh@hopie.com.au" aria-label="Send an email">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 4h20a1 1 0 011 1v14a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zm1.4 2L12 12.5 20.6 6H3.4zM1 7.4V18h22V7.4l-11 8.1L1 7.4z"/></svg>
+      </a>
+      <a href="Hugh_Opie_Resume.pdf" aria-label="Download resume" download>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
       </a>
     </div>
   </footer>
