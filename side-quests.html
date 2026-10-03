@@ -3,222 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Side Quests — Portfolio</title>
+<title>Side Quests — Hugh Opie</title>
+<meta name="description" content="Side quests, photos and personal projects by Hugh Opie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --deep-blue:#1450C8;
+   :root{
+    --blue:#1450C8;
     --black:#0A0A0A;
+    --paper:#FBFAF7;
     --white:#FFFFFF;
-    --border-grey:#E4E4E4;
-    --mute-grey:#B9B9B9;
+    --line:rgba(20,80,200,.58);
+    --muted:#6F7790;
+    --page-pad:clamp(24px,3.4vw,58px);
   }
 
-  *{box-sizing:border-box; margin:0; padding:0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
 
-  html{ height:100%; }
+  html{scroll-behavior:smooth;}
 
   body{
-    height:100vh;
-    height:100dvh;
-    overflow:hidden;
-    background:var(--white);
-    font-family:'Inter', sans-serif;
-    color:var(--black);
+    min-height:100vh;
+    overflow-x:hidden;
+    background:var(--paper);
+    color:var(--blue);
+    font-family:'Inter',Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  .page{
+    width:100%;
+    max-width:1600px;
+    margin:0 auto;
+    padding:20px var(--page-pad) 34px;
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
     display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:32px;
+    min-height:82px;
+  }
+
+  .brand-mark{
+    display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:2vh 2vw;
-  }
-
-  .frame{
-    width:100%;
-    max-width:1440px;
-    height:100%;
-    max-height:96vh;
-    border:1px solid var(--border-grey);
-    border-radius:20px;
-    padding:2.4vh 2.4vw;
-    display:flex;
-    flex-direction:column;
-    gap:1.6vh;
-    overflow:hidden;
-  }
-
-  /* ---------- NAV (shared across pages) ---------- */
-  .top-nav{
+    width:52px;
+    height:52px;
     flex:0 0 auto;
+    text-decoration:none;
+  }
+
+  .brand-mark img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+  }
+
+  .nav{
     display:flex;
     align-items:center;
-    gap:2.4vw;
+    justify-content:flex-end;
+    gap:clamp(26px,3.6vw,64px);
+    padding-top:16px;
   }
 
-  .nav-link{
-    text-decoration:none;
-    color:var(--black);
-    font-family:'Montserrat', sans-serif;
-    font-weight:600;
-    font-size:clamp(11px, 1vw, 13px);
-    letter-spacing:0.14em;
-    text-transform:uppercase;
+  .nav a{
     position:relative;
-    padding-bottom:4px;
-    transition:color .25s ease;
+    padding-bottom:9px;
+    text-decoration:none;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:12px;
+    line-height:1;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.01em;
   }
 
-  .nav-link::after{
+  .nav a::after{
     content:'';
     position:absolute;
-    left:0; bottom:0;
-    width:0%;
+    left:0;
+    bottom:0;
+    width:0;
     height:1.5px;
-    background:var(--deep-blue);
-    transition:width .3s ease;
+    background:var(--blue);
+    transition:width .22s ease;
   }
 
-  .nav-link:hover{color:var(--deep-blue);}
-  .nav-link:hover::after{width:100%;}
+  .nav a:hover::after,
+  .nav a.active::after{width:100%;}
 
-  .nav-link.active{
-    color:var(--deep-blue);
-    font-weight:700;
-  }
-  .nav-link.active::after{
-    width:100%;
-  }
-
-  .nav-link:focus-visible{
-    outline:2px solid var(--deep-blue);
-    outline-offset:3px;
+  /* ---------- HERO ---------- */
+  .side-hero{
+    display:grid;
+    grid-template-columns:minmax(0,1.75fr) minmax(340px,1fr);
+    gap:clamp(54px,8vw,130px);
+    align-items:start;
+    padding:22px 0 48px;
   }
 
-  /* ---------- FOOTER ---------- */
-  .site-footer{
-    flex:0 0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    padding-top:1.1vh;
-    border-top:1px solid var(--border-grey);
-  }
-
-  .footer-copy{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-family:'Montserrat', sans-serif;
-    font-weight:600;
-    font-size:10px;
-    letter-spacing:0.1em;
+  .side-title{
+    font-family:'Anton','Arial Narrow',Impact,sans-serif;
+    font-size:clamp(100px,12.7vw,198px);
+    line-height:.82;
+    font-weight:400;
+    letter-spacing:-.02em;
     text-transform:uppercase;
-    color:var(--mute-grey);
     white-space:nowrap;
   }
 
-  .footer-copy .dot{ color:var(--border-grey); }
-
-  .footer-social{
-    flex:0 0 auto;
-    display:flex;
-    align-items:center;
-    gap:8px;
+  .side-intro{
+    align-self:start;
+    justify-self:end;
+    max-width:500px;
+    padding-top:9px;
   }
 
-  .footer-social a{
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    border:1px solid var(--border-grey);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--deep-blue);
-    text-decoration:none;
-    transition:background-color .25s ease, border-color .25s ease, color .25s ease, transform .2s ease;
+  .side-intro h2{
+    margin-bottom:18px;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:clamp(22px,1.8vw,29px);
+    line-height:1.05;
+    font-weight:800;
+    letter-spacing:-.025em;
   }
 
-  .footer-social a svg{
-    width:13px;
-    height:13px;
-    fill:currentColor;
+  .side-intro p{
+    font-size:clamp(17px,1.38vw,22px);
+    line-height:1.33;
+    letter-spacing:-.018em;
   }
 
-  .footer-social a:hover{
-    background:var(--deep-blue);
-    border-color:var(--deep-blue);
-    color:var(--white);
-    transform:translateY(-2px);
+  /* ---------- PHOTO DECK ---------- */
+  .deck-section{
+    border-top:1px solid var(--line);
+    padding:clamp(28px,3.2vw,50px) 0 clamp(48px,5vw,78px);
   }
 
-  .footer-social a:focus-visible{
-    outline:2px solid var(--deep-blue);
-    outline-offset:3px;
-  }
-
-  @media (max-width: 480px){
-    .site-footer{
-      flex-wrap:wrap;
-      gap:12px;
-    }
-    .footer-copy{ white-space:normal; }
-  }
-
-  /* ---------- PAGE CONTENT: text left, deck right (mirrors About Me hero) ---------- */
-  .content{
-    flex:1 1 auto;
-    min-height:0;
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:4vw;
-    align-items:center;
-  }
-
-  .side-text{
-    display:flex;
-    flex-direction:column;
-    gap:2vh;
-    min-width:0;
-  }
-
-  .eyebrow{
-    font-family:'Montserrat', sans-serif;
-    font-weight:700;
-    font-size:clamp(11px, 1vw, 13px);
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--deep-blue);
-  }
-
-  .page-title{
-    font-family:'Montserrat', sans-serif;
-    font-weight:900;
-    font-size:clamp(32px, 5.6vh, 64px);
-    line-height:1.02;
-    letter-spacing:-0.01em;
-    text-transform:uppercase;
-    color:var(--deep-blue);
-    max-width:12ch;
-  }
-
-  .page-copy{
-    font-size:clamp(13px, 1.1vw, 16px);
-    line-height:1.6;
-    color:var(--black);
-    max-width:52ch;
-  }
-
-  /* ---------- SIDE QUEST DECK (right column, same footprint as hero-photo) ---------- */
-  .deck-col{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:1.6vh;
-    width:100%;
+  .deck-wrap{
+    width:min(100%, 660px);
+    margin:0 auto;
   }
 
   .deck-stage{
@@ -240,12 +173,13 @@
     left:50%;
     width:82%;
     height:82%;
-    background:#fff;
+    background:var(--paper);
     padding:12px 12px 34px;
-    border-radius:6px;
-    box-shadow:0 18px 36px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.08);
-    transition:transform .55s cubic-bezier(.22,.68,0,1.01), opacity .5s ease;
-    will-change:transform, opacity;
+    border:1px solid rgba(20,80,200,.12);
+    border-radius:2px;
+    box-shadow:0 16px 34px rgba(10,10,10,.11);
+    transition:transform .55s cubic-bezier(.22,.68,0,1.01),opacity .45s ease;
+    will-change:transform,opacity;
   }
 
   .polaroid img{
@@ -253,8 +187,7 @@
     height:100%;
     object-fit:cover;
     display:block;
-    border-radius:2px;
-    background:#eee;
+    background:#ECEBE8;
   }
 
   .deck-zone{
@@ -262,133 +195,206 @@
     top:0;
     bottom:0;
     width:50%;
-    border:none;
-    background:transparent;
-    cursor:pointer;
-    padding:0;
-    display:flex;
-    align-items:center;
     z-index:200;
+    border:0;
+    padding:0;
+    background:transparent;
+    color:var(--blue);
+    cursor:pointer;
+    opacity:0;
+    transition:opacity .2s ease;
   }
 
-  .deck-zone--left{ left:0; justify-content:flex-start; }
-  .deck-zone--right{ right:0; justify-content:flex-end; }
+  .deck-zone--left{left:0;}
+  .deck-zone--right{right:0;}
 
   .deck-zone::after{
-    content:'';
-    width:34px;
-    height:34px;
-    border-radius:50%;
-    background:var(--white);
-    border:1px solid var(--border-grey);
-    box-shadow:0 6px 16px rgba(0,0,0,0.12);
-    opacity:0;
-    transform:scale(0.7);
-    transition:opacity .2s ease, transform .2s ease;
-    margin:0 -6px;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:14px 14px;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-family:Arial,sans-serif;
+    font-size:32px;
+    line-height:1;
   }
 
-  .deck-zone--left::after{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231450C8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M15 18l-6-6 6-6'/></svg>");
-  }
+  .deck-zone--left::after{content:'←';left:4px;}
+  .deck-zone--right::after{content:'→';right:4px;}
 
-  .deck-zone--right::after{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231450C8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M9 6l6 6-6 6'/></svg>");
-  }
-
-  .deck-stage:hover .deck-zone::after{
-    opacity:1;
-    transform:scale(1);
-  }
-
-  .deck-zone:focus-visible::after{
-    opacity:1;
-    transform:scale(1);
-    outline:2px solid var(--deep-blue);
-    outline-offset:2px;
-  }
+  .deck-stage:hover .deck-zone,
+  .deck-zone:focus-visible{opacity:1;}
 
   .deck-counter{
-    flex:0 0 auto;
+    margin-top:15px;
     text-align:center;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Montserrat',Arial,sans-serif;
     font-weight:700;
     font-size:11px;
-    letter-spacing:0.14em;
-    color:var(--mute-grey);
+    line-height:1;
+    letter-spacing:.12em;
+    color:var(--muted);
   }
 
-  .deck-counter .current{ color:var(--deep-blue); }
+  .deck-counter .current{color:var(--blue);}
 
-  @media (prefers-reduced-motion: reduce){
-    .polaroid{ transition:none; }
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    padding:17px 0 4px;
+    border-top:1px solid var(--line);
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:11px;
+    line-height:1;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--blue);
   }
 
-  /* ================= MOBILE: stacks vertically, deck above text — matches About Me hero ================= */
-  @media (max-width: 768px){
-    body{
-      height:auto;
-      overflow-y:auto;
-      overflow-x:hidden;
-      display:block;
-      padding:16px;
+  .footer-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+
+  .footer-links a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  .footer-links a:hover{
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:4px;
+  }
+
+  /* ---------- TABLET ---------- */
+  @media (max-width:1180px){
+    .side-hero{
+      grid-template-columns:1fr;
+      gap:30px;
+      padding-top:12px;
     }
 
-    .frame{
-      height:auto;
-      max-height:none;
-      overflow:visible;
-      border-radius:16px;
-      padding:20px 16px 28px;
+    .side-title{
+      font-size:clamp(86px,17vw,160px);
+      white-space:normal;
+    }
+
+    .side-intro{
+      justify-self:start;
+      max-width:680px;
+      padding-top:0;
+    }
+
+    .deck-wrap{width:min(100%,610px);}
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width:680px){
+    .page{padding:18px 18px 28px;}
+
+    .site-header{
+      min-height:auto;
+      align-items:center;
+      margin-bottom:26px;
+    }
+
+    .brand-mark{width:42px;height:42px;}
+
+    .nav{
+      gap:16px;
+      padding-top:0;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      font-size:10px;
+      padding-bottom:7px;
+    }
+
+    .side-hero{
       gap:24px;
+      padding:6px 0 34px;
     }
 
-    .top-nav{ flex-wrap:wrap; gap:20px; }
+    .side-title{
+      font-size:clamp(66px,22vw,108px);
+      line-height:.86;
+    }
 
-    .content{
-      display:flex;
+    .side-intro h2{
+      margin-bottom:12px;
+      font-size:20px;
+    }
+
+    .side-intro p{
+      font-size:16px;
+      line-height:1.4;
+    }
+
+    .deck-section{
+      padding:26px 0 46px;
+    }
+
+    .deck-wrap{width:min(100%,390px);}
+
+    .deck-zone{opacity:1;}
+    .deck-zone::after{font-size:25px;}
+    .deck-zone--left::after{left:0;}
+    .deck-zone--right::after{right:0;}
+
+    .site-footer{
+      align-items:flex-start;
       flex-direction:column;
-      gap:24px;
+      font-size:10px;
     }
-
-    .deck-col{ order:1; }
-    .side-text{ order:2; }
-
-    .deck-stage{ max-width:340px; margin:0 auto; }
-
-    .page-title{ max-width:100%; font-size:clamp(28px, 9vw, 42px); }
   }
 
-  @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none!important;}
   }
 </style>
 </head>
 <body>
 
-<div class="frame">
+<main class="page">
+  <header class="site-header">
+    <a class="brand-mark" href="/" aria-label="Hugh Opie home">
+      <img src="favicon.png" alt="">
+    </a>
 
-  <nav class="top-nav">
-    <a href="/" class="nav-link">Work</a>
-    <a href="/about" class="nav-link">About Me</a>
-    <a href="/side-quests" class="nav-link active">Side Quests</a>
-  </nav>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/">Work</a>
+      <a href="/side-quests" class="active" aria-current="page">Side Quests</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
 
-  <div class="content">
-    <div class="side-text">
-      <div class="eyebrow">Side Quests</div>
-      <h1 class="page-title">Creating uncle lore</h1>
-      <p class="page-copy">
-        When I'm not writing copy, I like to hike for 5 days 
-        with zero experience, take photos of my friends, 
+  <section class="side-hero" aria-labelledby="page-title">
+    <h1 class="side-title" id="page-title">Side Quests</h1>
+
+    <div class="side-intro">
+      <h2>Creating uncle lore</h2>
+      <p>
+        When I'm not writing copy, I like to hike for 5 days
+        with zero experience, take photos of my friends,
         work on my clothing brand, and try to gather as much uncle lore as possible.
       </p>
     </div>
+  </section>
 
-    <div class="deck-col">
+  <section class="deck-section" aria-label="Side quest photo deck">
+    <div class="deck-wrap">
       <div class="deck-stage" id="deckStage">
         <div class="deck" id="deck"></div>
         <button class="deck-zone deck-zone--left" id="deckPrev" aria-label="Previous photo"></button>
@@ -396,40 +402,25 @@
       </div>
       <div class="deck-counter" id="deckCounter"></div>
     </div>
-  </div>
+  </section>
 
- <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-copy">
-      <span>&copy; <span id="footerYear"></span> Hugh Opie</span>
-      <span class="dot">&middot;</span>
-      <span>All rights reserved</span>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.linkedin.com/in/hugh-opie" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
-      </a>
-      <a href="mailto:hugh@hopie.com.au" aria-label="Send an email">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 4h20a1 1 0 011 1v14a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zm1.4 2L12 12.5 20.6 6H3.4zM1 7.4V18h22V7.4l-11 8.1L1 7.4z"/></svg>
-      </a>
-      <a href="Hugh_Opie_Resume.pdf" aria-label="Download resume" download>
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
-      </a>
+    <span>© <span id="footerYear"></span> Hugh Opie</span>
+    <div class="footer-links">
+      <a href="mailto:hugh@hopie.com.au">Email</a>
+      <a href="https://www.linkedin.com/in/hugh-opie" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="Hugh_Opie_Resume.pdf" download>Résumé</a>
     </div>
   </footer>
-
-</div>
+</main>
 
 <script src="sidequest.js"></script>
 <script>
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 
   /* =========================================================
-     SIDE QUEST DECK — card-stack carousel
-     Persistent DOM elements, one per photo. Each element's slot
-     (position in the stack) is recalculated from currentIndex,
-     so CSS transitions animate the slide/flip automatically —
-     no manual enter/exit choreography needed.
+     SIDE QUEST DECK — existing card-stack carousel behaviour.
+     The photo manifest still lives in sidequest.js.
      ========================================================= */
   (function(){
     const photos = (typeof sideQuestPhotos !== 'undefined') ? sideQuestPhotos : [];
@@ -443,28 +434,29 @@
 
     const N = photos.length;
     const STACK_SIZE = Math.min(5, N);
-    const TILTS = [-4, 3, -2, 5, -3, 2, -5, 4]; // deg, cycled per photo
+    const TILTS = [-4, 3, -2, 5, -3, 2, -5, 4];
     const PLACEHOLDER =
       "data:image/svg+xml;utf8," +
       encodeURIComponent(
         '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500">' +
-        '<rect width="400" height="500" fill="%23f2f2f2"/>' +
-        '<text x="50%" y="50%" font-family="Arial" font-size="16" fill="%23B9B9B9" text-anchor="middle">Add photo</text>' +
+        '<rect width="400" height="500" fill="%23ECEBE8"/>' +
+        '<text x="50%" y="50%" font-family="Arial" font-size="16" fill="%236F7790" text-anchor="middle">Add photo</text>' +
         '</svg>'
       );
 
     let currentIndex = 0;
     let autoTimer = null;
 
-    // Build one persistent element per photo
     const cardEls = photos.map((photo, i) => {
       const card = document.createElement('div');
       card.className = 'polaroid';
+
       const img = document.createElement('img');
       img.src = photo.src;
       img.alt = photo.alt || `Side quest photo ${i + 1}`;
       img.loading = 'lazy';
-      img.addEventListener('error', function(){ this.src = PLACEHOLDER; }, { once: true });
+      img.addEventListener('error', function(){ this.src = PLACEHOLDER; }, { once:true });
+
       card.appendChild(img);
       deckEl.appendChild(card);
       return card;
@@ -472,21 +464,22 @@
 
     function styleForSlot(slot, tilt){
       if (slot === 0){
-        return { x: 0, y: 0, scale: 1, rotate: tilt, z: 100, opacity: 1 };
+        return { x:0, y:0, scale:1, rotate:tilt, z:100, opacity:1 };
       }
+
       if (slot > 0 && slot < STACK_SIZE){
         const dir = slot % 2 === 0 ? 1 : -1;
         return {
-          x: dir * slot * 5,
-          y: slot * 11,
-          scale: 1 - slot * 0.045,
-          rotate: tilt + dir * slot * 3,
-          z: 100 - slot * 10,
-          opacity: 1 - slot * 0.14
+          x:dir * slot * 5,
+          y:slot * 11,
+          scale:1 - slot * .045,
+          rotate:tilt + dir * slot * 3,
+          z:100 - slot * 10,
+          opacity:1 - slot * .14
         };
       }
-      // Deep in the stack / off-deck: faded out behind everything
-      return { x: 0, y: 60, scale: 0.8, rotate: tilt, z: 0, opacity: 0 };
+
+      return { x:0, y:60, scale:.8, rotate:tilt, z:0, opacity:0 };
     }
 
     function render(){
@@ -495,12 +488,14 @@
         const tilt = TILTS[i % TILTS.length];
         const s = styleForSlot(slot, tilt);
         const card = cardEls[i];
+
         card.style.transform =
           `translate(-50%, -50%) translate(${s.x}px, ${s.y}px) rotate(${s.rotate}deg) scale(${s.scale})`;
         card.style.zIndex = s.z;
         card.style.opacity = s.opacity;
         card.style.pointerEvents = slot === 0 ? 'auto' : 'none';
       });
+
       counterEl.innerHTML =
         `<span class="current">${String(currentIndex + 1).padStart(2, '0')}</span> / ${String(N).padStart(2, '0')}`;
     }
@@ -525,21 +520,20 @@
       autoTimer = null;
     }
 
-    function manualNext(){ next(); startAuto(); }
-    function manualPrev(){ prev(); startAuto(); }
+    function manualNext(){next();startAuto();}
+    function manualPrev(){prev();startAuto();}
 
     nextBtn.addEventListener('click', manualNext);
     prevBtn.addEventListener('click', manualPrev);
 
-    // Pause on hover
     stageEl.addEventListener('mouseenter', stopAuto);
     stageEl.addEventListener('mouseleave', startAuto);
 
-    // Touch swipe support
     let touchStartX = null;
     stageEl.addEventListener('touchstart', (e) => {
       touchStartX = e.touches[0].clientX;
-    }, { passive: true });
+    }, { passive:true });
+
     stageEl.addEventListener('touchend', (e) => {
       if (touchStartX === null) return;
       const dx = e.changedTouches[0].clientX - touchStartX;
@@ -547,7 +541,7 @@
         dx < 0 ? manualNext() : manualPrev();
       }
       touchStartX = null;
-    }, { passive: true });
+    }, { passive:true });
 
     render();
     startAuto();

@@ -3,618 +3,676 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me — Portfolio</title>
+<title>About Me — Hugh Opie</title>
+<meta name="description" content="About Hugh Opie, a copywriter with a background in design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --deep-blue:#1450C8;
+   :root{
+    --blue:#1450C8;
     --black:#0A0A0A;
+    --paper:#FBFAF7;
     --white:#FFFFFF;
-    --border-grey:#E4E4E4;
-    --mute-grey:#B9B9B9;
+    --line:rgba(20,80,200,.58);
+    --muted:#6F7790;
+    --page-pad:clamp(24px,3.4vw,58px);
   }
 
-  *{box-sizing:border-box; margin:0; padding:0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
 
-  html{ height:100%; }
+  html{scroll-behavior:smooth;}
 
-  /* Page now scrolls: hero fills the first screen, Education/Experience
-     sits below the fold and only appears once the visitor scrolls. */
   body{
     min-height:100vh;
-    overflow-y:auto;
     overflow-x:hidden;
-    background:var(--white);
-    font-family:'Inter', sans-serif;
-    color:var(--black);
+    background:var(--paper);
+    color:var(--blue);
+    font-family:'Inter',Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
-    display:flex;
-    justify-content:center;
-    padding:2vh 2vw 6vh;
   }
 
-  .frame{
+  a{color:inherit;}
+
+  .page{
     width:100%;
-    max-width:1440px;
-    border:1px solid var(--border-grey);
-    border-radius:20px;
-    padding:2.4vh 2.4vw 6vh;
+    max-width:1600px;
+    margin:0 auto;
+    padding:20px var(--page-pad) 34px;
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
     display:flex;
-    flex-direction:column;
-    gap:2.6vh;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:32px;
+    min-height:82px;
   }
 
-  /* ---------- NAV (shared across pages) ---------- */
-  .top-nav{
-    flex:0 0 auto;
-    display:flex;
-    align-items:center;
-    gap:2.4vw;
-  }
-
-  .nav-link{
-    text-decoration:none;
-    color:var(--black);
-    font-family:'Montserrat', sans-serif;
-    font-weight:600;
-    font-size:clamp(11px, 1vw, 13px);
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    position:relative;
-    padding-bottom:4px;
-    transition:color .25s ease;
-  }
-
-  .nav-link::after{
-    content:'';
-    position:absolute;
-    left:0; bottom:0;
-    width:0%;
-    height:1.5px;
-    background:var(--deep-blue);
-    transition:width .3s ease;
-  }
-
-  .nav-link:hover{color:var(--deep-blue);}
-  .nav-link:hover::after{width:100%;}
-
-  .nav-link.active{
-    color:var(--deep-blue);
-    font-weight:700;
-  }
-  .nav-link.active::after{
-    width:100%;
-  }
-
-  .nav-link:focus-visible{
-    outline:2px solid var(--deep-blue);
-    outline-offset:3px;
-  }
-
-  /* ---------- HERO (first screen: intro text + photo) ---------- */
-  .hero{
-    flex:0 0 auto;
-    min-height:78vh;
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:4vw;
-    align-items:center;
-  }
-
-  .hero-text{
-    display:flex;
-    flex-direction:column;
-    gap:2vh;
-  }
-
-  .eyebrow{
-    font-family:'Montserrat', sans-serif;
-    font-weight:700;
-    font-size:clamp(11px, 1vw, 13px);
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--deep-blue);
-  }
-
-  .page-title{
-    font-family:'Montserrat', sans-serif;
-    font-weight:900;
-    font-size:clamp(32px, 5.6vh, 64px);
-    line-height:1.02;
-    letter-spacing:-0.01em;
-    text-transform:uppercase;
-    color:var(--deep-blue);
-    max-width:12ch;
-  }
-
-  .page-copy{
-    font-size:clamp(13px, 1.1vw, 16px);
-    line-height:1.6;
-    color:var(--black);
-    max-width:52ch;
-  }
-
-  .scroll-hint{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-top:1vh;
-    font-family:'Montserrat', sans-serif;
-    font-weight:600;
-    font-size:10px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--mute-grey);
-  }
-
-  .scroll-hint svg{
-    width:12px;
-    height:12px;
-    fill:none;
-    stroke:var(--mute-grey);
-    stroke-width:2;
-    animation:bounceDown 1.8s ease-in-out infinite;
-  }
-
-  /* ---------- RESUME DOWNLOAD BUTTON ---------- */
-  .resume-btn{
+  .brand-mark{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    align-self:flex-start;
-    margin-top:6px;
-    padding:11px 22px;
-    border:1.5px solid var(--deep-blue);
-    border-radius:9999px;
-    color:var(--deep-blue);
-    background:transparent;
-    font-family:'Montserrat', sans-serif;
-    font-weight:700;
-    font-size:11px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    text-decoration:none;
-    transition:background-color .25s ease, color .25s ease;
-  }
-
-  .resume-btn svg{
-    width:14px;
-    height:14px;
+    justify-content:center;
+    width:52px;
+    height:52px;
     flex:0 0 auto;
+    text-decoration:none;
   }
 
-  .resume-btn:hover{
-    background:var(--deep-blue);
-    color:var(--white);
-  }
-
-  .resume-btn:focus-visible{
-    outline:2px solid var(--deep-blue);
-    outline-offset:3px;
-  }
-
-  @keyframes bounceDown{
-    0%, 100%{ transform:translateY(0); }
-    50%{ transform:translateY(4px); }
-  }
-
-  /* ---------- HERO PHOTO ---------- */
-  .hero-photo{
-    position:relative;
-    width:100%;
-    aspect-ratio:4/5;
-    border-radius:24px;
-    overflow:hidden;
-    background:#f2f2f2;
-  }
-
-  .hero-photo img{
+  .brand-mark img{
     width:100%;
     height:100%;
-    object-fit:cover;
     display:block;
+    object-fit:contain;
   }
 
-  .photo-placeholder{
-    display:none;
-    position:absolute;
-    inset:0;
-    flex-direction:column;
+  .nav{
+    display:flex;
     align-items:center;
-    justify-content:center;
-    gap:12px;
-    background:#f2f2f2;
-    color:var(--mute-grey);
-    text-align:center;
-    padding:24px;
+    justify-content:flex-end;
+    gap:clamp(26px,3.6vw,64px);
+    padding-top:16px;
   }
 
-  .photo-placeholder svg{
-    width:40px;
-    height:40px;
-    stroke:var(--mute-grey);
-    fill:none;
-    stroke-width:1.4;
-  }
-
-  .photo-placeholder span{
-    font-family:'Inter', sans-serif;
+  .nav a{
+    position:relative;
+    padding-bottom:9px;
+    text-decoration:none;
+    font-family:'Montserrat',Arial,sans-serif;
     font-size:12px;
-    line-height:1.6;
+    line-height:1;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.01em;
   }
 
-  .photo-placeholder code{
-    display:inline-block;
+  .nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:1.5px;
+    background:var(--blue);
+    transition:width .22s ease;
+  }
+
+  .nav a:hover::after,
+  .nav a.active::after{width:100%;}
+
+  /* ---------- HERO ---------- */
+  .about-hero{
+    padding:22px 0 72px;
+  }
+
+  .about-title{
+    width:100%;
+    font-family:'Anton','Arial Narrow',Impact,sans-serif;
+    font-size:clamp(120px,20vw,320px);
+    line-height:.80;
+    font-weight:400;
+    letter-spacing:-.025em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  .about-title-rule{
+    width:100%;
+    height:1px;
+    margin:clamp(22px,2.3vw,36px) 0 clamp(26px,3vw,46px);
+    background:var(--line);
+  }
+
+  .about-intro-row{
+    display:grid;
+    grid-template-columns:minmax(0,1.55fr) minmax(210px,.45fr);
+    gap:clamp(38px,7vw,120px);
+    align-items:start;
+  }
+
+  .about-intro{
+    max-width:760px;
+  }
+
+  .about-intro p{
+    font-size:clamp(18px,1.45vw,22px);
+    line-height:1.42;
+    letter-spacing:-.018em;
+  }
+
+  .about-intro p + p{margin-top:26px;}
+
+  .about-resume{
+    display:flex;
+    justify-content:flex-end;
+    padding-top:2px;
+  }
+
+  .resume-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:12px;
+    text-decoration:none;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:13px;
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    white-space:nowrap;
+  }
+
+  .resume-link .arrow{
+    font-family:Arial,sans-serif;
+    font-size:23px;
+    line-height:.8;
+    transition:transform .2s ease;
+  }
+
+  .resume-link:hover .arrow{transform:translateX(5px);}
+
+  /* ---------- SECTION HEAD ---------- */
+  .section-heading{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    align-items:center;
+    gap:16px;
+    margin-bottom:30px;
+  }
+
+  .section-heading h2{
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:14px;
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+
+  .section-heading .rule{
+    height:1px;
+    background:var(--line);
+  }
+
+  /* ---------- PROFILE / CV GRID ---------- */
+  .profile-grid{
+    padding-bottom:38px;
+  }
+
+  .credentials{
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+    gap:clamp(36px,4vw,66px);
+    min-width:0;
+  }
+
+  .credential-group{min-width:0;}
+
+  .credential-heading{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+  }
+
+  .credential-heading h3{
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:14px;
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+
+  .credential-heading .rule{
+    height:1px;
+    background:var(--line);
+  }
+
+  .credential-list{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .credential-item{
+    display:grid;
+    grid-template-columns:56px minmax(0,1fr);
+    gap:15px;
+    align-items:start;
+  }
+
+  .credential-year{
+    padding-top:1px;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:14px;
+    line-height:1.25;
+    font-weight:800;
+    color:var(--blue);
+  }
+
+  .credential-role{
+    display:block;
+    color:var(--black);
+    font-family:'Inter',Arial,sans-serif;
+    font-size:16px;
+    line-height:1.25;
+    font-weight:700;
+    letter-spacing:-.012em;
+  }
+
+  .credential-org{
+    display:block;
     margin-top:4px;
-    padding:2px 8px;
-    background:var(--white);
-    border:1px solid var(--border-grey);
-    border-radius:4px;
-    font-size:11px;
+    color:var(--black);
+    font-size:14px;
+    line-height:1.35;
+    font-weight:400;
+  }
+
+  /* ---------- ACHIEVEMENTS ---------- */
+  .achievements{
+    padding:18px 0 26px;
+  }
+
+  .achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:clamp(20px,3.2vw,52px);
+  }
+
+  .achievement-item{
+    min-width:0;
     color:var(--black);
   }
 
-  /* ---------- CREDENTIALS (below the fold) ---------- */
-  .credentials{
-    flex:0 0 auto;
-    display:flex;
-    flex-direction:column;
-    gap:4vh;
-    padding-top:2vh;
-    border-top:1px solid var(--border-grey);
+  .achievement-number{
+    display:block;
+    margin-bottom:5px;
+    font-family:'Anton','Arial Narrow',Impact,sans-serif;
+    font-size:clamp(50px,4.8vw,72px);
+    line-height:.9;
+    font-weight:400;
+    letter-spacing:-.02em;
+    color:var(--blue);
   }
 
-  .credentials-group{
-    display:flex;
-    flex-direction:column;
-    gap:1.6vh;
-  }
-
-  .credentials-heading{
-    font-family:'Montserrat', sans-serif;
-    font-weight:700;
-    font-size:clamp(11px, 1vw, 13px);
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--deep-blue);
-  }
-
-  .cred-grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:14px;
-  }
-
-  .cred-card{
-    background:var(--deep-blue);
-    color:var(--white);
-    border-radius:16px;
-    padding:22px 24px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-
-  .cred-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 28px rgba(20,80,200,0.28);
-  }
-
-  .cred-year{
-    font-family:'Montserrat', sans-serif;
-    font-weight:700;
-    font-size:10px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:rgba(255,255,255,0.65);
-  }
-
-  .cred-role{
-    font-family:'Montserrat', sans-serif;
+  .achievement-kicker{
+    display:block;
+    margin-bottom:4px;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:11px;
+    line-height:1.2;
     font-weight:800;
-    font-size:clamp(14px, 1.3vw, 17px);
-    line-height:1.25;
     text-transform:uppercase;
-    color:var(--white);
+    letter-spacing:.035em;
+    color:var(--blue);
   }
 
-  .cred-org{
-    font-family:'Inter', sans-serif;
-    font-weight:500;
-    font-size:13px;
-    letter-spacing:0.02em;
-    color:rgba(255,255,255,0.85);
-  }
-
-  .cred-card--loading{
-    grid-column:1 / -1;
-    background:linear-gradient(135deg, var(--deep-blue), #0B3690);
-    border:1.5px dashed rgba(255,255,255,0.4);
-    animation:pulseLoading 2.4s ease-in-out infinite;
-  }
-
-  @keyframes pulseLoading{
-    0%, 100%{ opacity:1; }
-    50%{ opacity:0.72; }
+  .achievement-title{
+    display:block;
+    font-size:16px;
+    line-height:1.22;
+    font-weight:700;
+    letter-spacing:-.01em;
   }
 
   /* ---------- FOOTER ---------- */
   .site-footer{
-    flex:0 0 auto;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    gap:16px;
-    padding-top:1.1vh;
-    margin-top:1vh;
-    border-top:1px solid var(--border-grey);
-  }
-
-  .footer-copy{
-    display:flex;
     align-items:center;
-    gap:8px;
-    font-family:'Montserrat', sans-serif;
+    gap:24px;
+    padding:17px 0 4px;
+    border-top:1px solid var(--line);
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:11px;
+    line-height:1;
     font-weight:600;
-    font-size:10px;
-    letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--mute-grey);
-    white-space:nowrap;
+    letter-spacing:.04em;
+    color:var(--blue);
   }
 
-  .footer-copy .dot{ color:var(--border-grey); }
-
-  .footer-social{
-    flex:0 0 auto;
+  .footer-links{
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:22px;
+    flex-wrap:wrap;
   }
 
-  .footer-social a{
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    border:1px solid var(--border-grey);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--deep-blue);
+  .footer-links a{
+    color:inherit;
     text-decoration:none;
-    transition:background-color .25s ease, border-color .25s ease, color .25s ease, transform .2s ease;
   }
 
-  .footer-social a svg{
-    width:13px;
-    height:13px;
-    fill:currentColor;
+  .footer-links a:hover{
+    text-decoration:underline;
+    text-underline-offset:4px;
   }
 
-  .footer-social a:hover{
-    background:var(--deep-blue);
-    border-color:var(--deep-blue);
-    color:var(--white);
-    transform:translateY(-2px);
+  :focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:4px;
   }
 
-  .footer-social a:focus-visible{
-    outline:2px solid var(--deep-blue);
-    outline-offset:3px;
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 768px){
-    body{ padding:16px 16px 40px; }
-
-    .frame{
-      border-radius:16px;
-      padding:20px 16px 40px;
-      gap:24px;
+  /* ---------- TABLET ---------- */
+  @media (max-width:1180px){
+    .about-hero{
+      padding-top:12px;
+      padding-bottom:58px;
     }
 
-    .top-nav{ flex-wrap:wrap; gap:20px; }
+    .about-title{
+      font-size:clamp(96px,20vw,230px);
+    }
 
-    .hero{
-      display:flex;
-      flex-direction:column;
+    .about-intro-row{
+      grid-template-columns:minmax(0,1.4fr) minmax(190px,.6fr);
+      gap:46px;
+    }
+
+    .about-intro{
+      max-width:720px;
+    }
+
+    .profile-grid{
+      padding-bottom:38px;
+    }
+
+    .credentials{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .achievement-grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      row-gap:34px;
+    }
+  }
+
+  @media (max-width:820px){
+    .credentials{grid-template-columns:1fr;}
+    .achievement-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width:680px){
+    .page{padding:18px 18px 28px;}
+
+    .site-header{
       min-height:auto;
-      gap:24px;
+      align-items:center;
+      margin-bottom:26px;
     }
 
-    .hero-photo{
-      order:1;
-      aspect-ratio:4/5;
-    }
+    .brand-mark{width:42px;height:42px;}
 
-    .hero-text{ order:2; }
-
-    .page-title{ max-width:100%; font-size:clamp(28px, 9vw, 42px); }
-
-    .cred-grid{ grid-template-columns:1fr; }
-  }
-
-  @media (max-width: 480px){
-    .site-footer{
+    .nav{
+      gap:16px;
+      padding-top:0;
       flex-wrap:wrap;
+    }
+
+    .nav a{
+      font-size:10px;
+      padding-bottom:6px;
+    }
+
+    .about-hero{
+      padding:8px 0 42px;
+    }
+
+    .about-title{
+      font-size:clamp(72px,22vw,112px);
+      line-height:.84;
+      white-space:nowrap;
+    }
+
+    .about-title-rule{
+      margin:18px 0 24px;
+    }
+
+    .about-intro-row{
+      grid-template-columns:1fr;
+      gap:26px;
+    }
+
+    .about-intro p{
+      font-size:17px;
+      line-height:1.4;
+    }
+
+    .about-resume{
+      justify-content:flex-start;
+      padding-top:0;
+    }
+
+    .resume-link{
+      font-size:12px;
+    }
+
+    .profile-grid{
+      padding-bottom:32px;
+    }
+
+    .credential-heading{margin-bottom:22px;}
+    .credential-list{gap:20px;}
+
+    .credential-item{
+      grid-template-columns:50px minmax(0,1fr);
       gap:12px;
     }
-    .footer-copy{ white-space:normal; }
+
+    .credential-year{font-size:12px;}
+    .credential-role{font-size:15px;}
+    .credential-org{font-size:13px;}
+
+    .section-heading{margin-bottom:24px;}
+    .section-heading h2,
+    .credential-heading h3{font-size:11px;}
+
+    .achievement-grid{
+      grid-template-columns:1fr;
+      gap:28px;
+    }
+
+    .achievement-number{font-size:56px;}
+
+    .site-footer{
+      align-items:flex-start;
+      flex-direction:column;
+      font-size:10px;
+    }
   }
 
-  @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; }
-    .scroll-hint svg{ animation:none; }
-    .cred-card--loading{ animation:none; }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none!important;}
   }
 </style>
 </head>
 <body>
 
-<div class="frame">
+<main class="page">
+  <header class="site-header">
+    <a class="brand-mark" href="/" aria-label="Hugh Opie home">
+      <img src="favicon.png" alt="">
+    </a>
 
-  <nav class="top-nav">
-    <a href="/" class="nav-link">Work</a>
-    <a href="/about" class="nav-link active">About Me</a>
-    <a href="/side-quests" class="nav-link">Side Quests</a>
-  </nav>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/">Work</a>
+      <a href="/side-quests">Side Quests</a>
+      <a href="/about" class="active" aria-current="page">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- HERO: intro text + photo, fills the first screen -->
-  <section class="hero">
-    <div class="hero-text">
-      <div class="eyebrow">Hugh Opie</div>
-      <h1 class="page-title">A Little About Me</h1>
-      <p class="page-copy">
-        I'm a copywriter. AWARD School graduate, now interning at Rare, 
-        who took home the most PADC Skulls in 2025. 
-        Learning off people who actually know what they're doing.
+  <section class="about-hero" aria-labelledby="page-title">
+    <h1 class="about-title" id="page-title">About Me</h1>
+    <div class="about-title-rule" aria-hidden="true"></div>
 
-      </p>
-      <p class="page-copy">
-        I've got a design background too, so I'm usually thinking about
-        how an idea looks while I'm still writing it.
-      </p>
-      <a href="Hugh_Opie_Resume.pdf" class="resume-btn" download>
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
-        Download Résumé
-      </a>
-      <div class="scroll-hint">
-        <span>Scroll for education &amp; experience</span>
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="about-intro-row">
+      <div class="about-intro">
+        <p>
+          I'm a copywriter. AWARD School graduate, now interning at Rare,
+          who took home the most PADC Skulls in 2025.
+          Learning off people who actually know what they're doing.
+        </p>
+        <p>
+          I've got a design background too, so I'm usually thinking about
+          how an idea looks while I'm still writing it.
+        </p>
       </div>
-    </div>
 
-    <div class="hero-photo">
-      <img id="aboutPhotoImg" src="images/your-photo.jpg" alt="Hugh Opie portrait">
-      <div class="photo-placeholder" id="photoPlaceholder">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke-linecap="round"/></svg>
-        <span>Add your photo to<br><code>images/your-photo.jpg</code></span>
+      <div class="about-resume">
+        <a class="resume-link" href="Hugh_Opie_Resume.pdf" download>
+          Download Résumé <span class="arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CREDENTIALS: revealed on scroll -->
-  <section class="credentials">
+  <section class="profile-grid" aria-label="Education and experience">
+    <div class="credentials">
+      <section class="credential-group" aria-labelledby="education-title">
+        <div class="credential-heading">
+          <h3 id="education-title">Education</h3>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
 
-    <div class="credentials-group">
-      <div class="credentials-heading">Education</div>
-      <div class="cred-grid">
-        <div class="cred-card">
-          <span class="cred-year">2026</span>
-          <span class="cred-role">Award School</span>
-          <span class="cred-org">Creative Advertising Program</span>
+        <div class="credential-list">
+          <div class="credential-item">
+            <span class="credential-year">2026</span>
+            <div>
+              <span class="credential-role">Award School</span>
+              <span class="credential-org">Creative Advertising Program</span>
+            </div>
+          </div>
+
+          <div class="credential-item">
+            <span class="credential-year">2025</span>
+            <div>
+              <span class="credential-role">BCom - Marketing &amp; advertising design</span>
+              <span class="credential-org">Curtin University</span>
+            </div>
+          </div>
         </div>
-        <div class="cred-card">
-          <span class="cred-year">2025</span>
-          <span class="cred-role">BCom - Marketing &amp; advertising design</span>
-          <span class="cred-org">Curtin University</span>
+      </section>
+
+      <section class="credential-group" aria-labelledby="experience-title">
+        <div class="credential-heading">
+          <h3 id="experience-title">Experience</h3>
+          <span class="rule" aria-hidden="true"></span>
         </div>
-      </div>
+
+        <div class="credential-list">
+          <div class="credential-item">
+            <span class="credential-year">2026</span>
+            <div>
+              <span class="credential-role">Copywriter (Work Experience)</span>
+              <span class="credential-org">Rare</span>
+            </div>
+          </div>
+
+          <div class="credential-item">
+            <span class="credential-year">2026</span>
+            <div>
+              <span class="credential-role">Social Strategy Sub Committee</span>
+              <span class="credential-org">Perth Advertising and Design Club</span>
+            </div>
+          </div>
+
+          <div class="credential-item">
+            <span class="credential-year">2025</span>
+            <div>
+              <span class="credential-role">Marketing &amp; Communications Intern</span>
+              <span class="credential-org">CAPE Dunstans</span>
+            </div>
+          </div>
+
+          <div class="credential-item">
+            <span class="credential-year">2025</span>
+            <div>
+              <span class="credential-role">Graphic Designer</span>
+              <span class="credential-org">StreetX</span>
+            </div>
+          </div>
+
+          <div class="credential-item">
+            <span class="credential-year">2025</span>
+            <div>
+              <span class="credential-role">Marketing Officer</span>
+              <span class="credential-org">Curtin Photography Club</span>
+            </div>
+          </div>
+
+          <div class="credential-item">
+            <span class="credential-year">2023</span>
+            <div>
+              <span class="credential-role">Marketing Intern</span>
+              <span class="credential-org">StreetX</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-
-    <div class="credentials-group">
-      <div class="credentials-heading">Experience</div>
-      <div class="cred-grid">
-        <div class="cred-card">
-          <span class="cred-year">2023</span>
-          <span class="cred-role">Marketing Intern</span>
-          <span class="cred-org">StreetX</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">2025</span>
-          <span class="cred-role">Marketing Officer</span>
-          <span class="cred-org">Curtin Photography Club</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">2025</span>
-          <span class="cred-role">Graphic Designer</span>
-          <span class="cred-org">StreetX</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">2025</span>
-          <span class="cred-role">Marketing &amp; Communications Intern</span>
-          <span class="cred-org">CAPE Dunstans</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">2026</span>
-          <span class="cred-role">Social Strategy Sub Committee </span>
-          <span class="cred-org">Perth Advertising and Design Club</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">2026</span>
-          <span class="cred-role">Copywriter (Work Experience)</span>
-          <span class="cred-org">Rare</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="credentials-group">
-      <div class="credentials-heading">Achievements</div>
-      <div class="cred-grid">
-        <div class="cred-card">
-          <span class="cred-year">2026</span>
-          <span class="cred-role">Award School Student</span>
-          <span class="cred-org">1 of 13 in Perth</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">Leadership</span>
-          <span class="cred-role">2x Art Club Captain</span>
-          <span class="cred-org">Two-term elected, no coup attempts</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">Official Selection</span>
-          <span class="cred-role">Featured Artist... On Mum's Fridge</span>
-          <span class="cred-org">Prime top-shelf real estate</span>
-        </div>
-        <div class="cred-card">
-          <span class="cred-year">Podium Adjacent</span>
-          <span class="cred-role">4th Place in the Year 4 50m Sprint</span>
-          <span class="cred-org">So close, yet so far</span>
-        </div>
-        <div class="cred-card cred-card--loading">
-          <span class="cred-year">In Progress</span>
-          <span class="cred-role">[ Loading more awards&hellip; ]</span>
-          <span class="cred-org">Hungry for the next win, eager to take on bigger challenges and add to the stack.</span>
-        </div>
-      </div>
-    </div>
-
   </section>
 
-  <!-- FOOTER -->
+  <section class="achievements" aria-labelledby="achievements-title">
+    <div class="section-heading">
+      <h2 id="achievements-title">Achievements</h2>
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="achievement-grid">
+      <article class="achievement-item">
+        <span class="achievement-number">01</span>
+        <span class="achievement-kicker">2026</span>
+        <span class="achievement-title">Award School Student</span>
+      </article>
+
+      <article class="achievement-item">
+        <span class="achievement-number">02</span>
+        <span class="achievement-kicker">Leadership</span>
+        <span class="achievement-title">2x Art Club Captain</span>
+      </article>
+
+      <article class="achievement-item">
+        <span class="achievement-number">03</span>
+        <span class="achievement-kicker">Official Selection</span>
+        <span class="achievement-title">Featured Artist... On Mum's Fridge</span>
+      </article>
+
+      <article class="achievement-item">
+        <span class="achievement-number">04</span>
+        <span class="achievement-kicker">Podium Adjacent</span>
+        <span class="achievement-title">4th Place in the Year 4 50m Sprint</span>
+      </article>
+
+      <article class="achievement-item">
+        <span class="achievement-number">05</span>
+        <span class="achievement-kicker">In Progress</span>
+        <span class="achievement-title">[ Loading more awards&hellip; ]</span>
+      </article>
+    </div>
+  </section>
+
   <footer class="site-footer">
-    <div class="footer-copy">
-      <span>&copy; <span id="footerYear"></span> Hugh Opie</span>
-      <span class="dot">&middot;</span>
-      <span>All rights reserved</span>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.linkedin.com/in/hugh-opie" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
-      </a>
-      <a href="mailto:hugh@hopie.com.au" aria-label="Send an email">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 4h20a1 1 0 011 1v14a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zm1.4 2L12 12.5 20.6 6H3.4zM1 7.4V18h22V7.4l-11 8.1L1 7.4z"/></svg>
-      </a>
-      <a href="Hugh_Opie_Resume.pdf" aria-label="Download resume" download>
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
-      </a>
+    <span>© <span id="footerYear"></span> Hugh Opie</span>
+    <div class="footer-links">
+      <a href="mailto:hugh@hopie.com.au">Email</a>
+      <a href="https://www.linkedin.com/in/hugh-opie" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="Hugh_Opie_Resume.pdf" download>Résumé</a>
     </div>
   </footer>
-
-</div>
+</main>
 
 <script>
   document.getElementById('footerYear').textContent = new Date().getFullYear();
-
-  // Show a friendly placeholder if the photo hasn't been added yet
-  document.getElementById('aboutPhotoImg').addEventListener('error', function(){
-    this.style.display = 'none';
-    document.getElementById('photoPlaceholder').style.display = 'flex';
-  });
 </script>
 
 </body>
