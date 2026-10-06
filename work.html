@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  if(sessionStorage.getItem('portfolioUnlocked') !== 'true'){
+    window.location.replace('/');
+  }
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hugh Opie — Junior Copywriter</title>
+<meta name="description" content="Hugh Opie is a junior copywriter with a background in design, currently interning at Rare in Perth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+   :root{
+    --blue:#1450C8;
+    --black:#0A0A0A;
+    --paper:#FBFAF7;
+    --white:#FFFFFF;
+    --line:rgba(20,80,200,.58);
+    --muted:#6F7790;
+    --page-pad:clamp(24px,3.4vw,58px);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:var(--paper);
+    color:var(--blue);
+    font-family:'Inter',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  .page{
+    width:100%;
+    max-width:1600px;
+    min-height:100vh;
+    min-height:100svh;
+    margin:0 auto;
+    padding:20px var(--page-pad) 22px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:32px;
+    min-height:72px;
+  }
+
+  .brand-mark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:52px;
+    height:52px;
+    text-decoration:none;
+    flex:0 0 auto;
+  }
+
+  .brand-mark img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:clamp(26px,3.6vw,64px);
+    padding-top:16px;
+  }
+
+  .nav a{
+    position:relative;
+    text-decoration:none;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:12px;
+    line-height:1;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    padding-bottom:9px;
+  }
+
+  .nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:1.5px;
+    background:var(--blue);
+    transition:width .22s ease;
+  }
+
+  .nav a:hover::after,
+  .nav a.active::after{width:100%;}
+
+  /* ---------- INTRO ---------- */
+  .intro{
+    display:grid;
+    grid-template-columns:minmax(0,1.9fr) minmax(310px,.95fr);
+    gap:clamp(60px,8vw,132px);
+    align-items:center;
+    padding:clamp(42px,5.5vh,76px) 0 clamp(48px,6vh,82px);
+  }
+
+  .name{
+    font-family:'Anton','Arial Narrow',Impact,sans-serif;
+    font-weight:400;
+    font-size:clamp(92px,13.2vw,205px);
+    line-height:.82;
+    letter-spacing:-.018em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  .role{
+    margin-top:18px;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:clamp(22px,2vw,32px);
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-.025em;
+  }
+
+  .intro-copy{
+    padding-bottom:8px;
+    max-width:430px;
+    justify-self:end;
+  }
+
+  .intro-copy p{
+    font-size:clamp(17px,1.4vw,22px);
+    line-height:1.32;
+    font-weight:400;
+    letter-spacing:-.018em;
+  }
+
+  .more-link{
+    display:inline-flex;
+    align-items:center;
+    gap:13px;
+    margin-top:28px;
+    text-decoration:none;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:14px;
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+
+  .more-link .arrow{
+    font-family:Arial,sans-serif;
+    font-size:24px;
+    line-height:.7;
+    transition:transform .2s ease;
+  }
+
+  .more-link:hover .arrow{transform:translateX(5px);}
+
+  /* ---------- WORK HEADING ---------- */
+  .work-heading{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    align-items:center;
+    gap:18px;
+    margin:0 0 22px;
+  }
+
+  .work-heading h2{
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:14px;
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.025em;
+  }
+
+  .work-heading .line{
+    height:1px;
+    background:var(--line);
+  }
+
+  /* ---------- PROJECT GRID ---------- */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    gap:16px;
+  }
+
+  .project-card{
+    position:relative;
+    overflow:hidden;
+    color:var(--white);
+    background:#0e2e58;
+    text-decoration:none;
+    min-height:260px;
+    isolation:isolate;
+  }
+
+  .project-card:nth-child(1),
+  .project-card:nth-child(2){
+    grid-column:span 6;
+    aspect-ratio:2.25/1;
+  }
+
+  .project-card:nth-child(n+3){
+    grid-column:span 4;
+    aspect-ratio:1.8/1;
+  }
+
+  .project-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    z-index:-2;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1), filter .35s ease;
+  }
+
+  .project-card::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(to bottom,rgba(0,0,0,.05) 35%,rgba(0,0,0,.62) 100%);
+    transition:background .3s ease;
+  }
+
+  .project-card:hover img{transform:scale(1.025);}
+
+  .project-card:hover::after{
+    background:linear-gradient(to bottom,rgba(0,0,0,.02) 25%,rgba(0,0,0,.72) 100%);
+  }
+
+  .project-number{
+    position:absolute;
+    top:17px;
+    left:16px;
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:clamp(18px,1.7vw,25px);
+    line-height:1;
+    font-weight:700;
+    letter-spacing:-.03em;
+  }
+
+  .project-meta{
+    position:absolute;
+    left:16px;
+    right:16px;
+    bottom:14px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+  }
+
+  .project-title{
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:clamp(15px,1.25vw,19px);
+    line-height:1.08;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:-.015em;
+  }
+
+  .project-brand{
+    display:block;
+    margin-top:3px;
+    font-size:14px;
+    line-height:1.1;
+    font-weight:400;
+  }
+
+  .project-arrow{
+    flex:0 0 auto;
+    font-family:Arial,sans-serif;
+    font-size:31px;
+    line-height:.8;
+    transform:translateX(0);
+    transition:transform .2s ease;
+  }
+
+  .project-card:hover .project-arrow{transform:translateX(6px);}
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    flex:0 0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:28px;
+    margin-top:clamp(48px,6vw,86px);
+    padding:18px 0 2px;
+    border-top:1px solid var(--line);
+    font-family:'Montserrat',Arial,sans-serif;
+    font-size:11px;
+    line-height:1;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--blue);
+  }
+
+  .footer-links{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+
+  .footer-links a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  .footer-links a:hover{
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+
+  /* ---------- TABLET ---------- */
+  @media (max-width:1000px){
+    .intro{
+      grid-template-columns:1fr;
+      gap:34px;
+      align-items:start;
+      padding:40px 0 58px;
+    }
+
+    .name{
+      font-size:clamp(78px,18vw,150px);
+      white-space:normal;
+    }
+
+    .intro-copy{
+      justify-self:start;
+      max-width:580px;
+      padding-bottom:0;
+    }
+
+    .project-card:nth-child(1),
+    .project-card:nth-child(2),
+    .project-card:nth-child(n+3){
+      grid-column:span 6;
+      aspect-ratio:1.7/1;
+    }
+
+    .project-card:last-child{grid-column:span 12; aspect-ratio:2.4/1;}
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width:680px){
+    .page{padding:18px 18px 20px;}
+
+    .site-header{
+      align-items:center;
+      min-height:auto;
+      margin-bottom:0;
+    }
+
+    .brand-mark{width:42px;height:42px;}
+
+    .nav{
+      gap:16px;
+      padding-top:0;
+      flex-wrap:wrap;
+    }
+
+    .nav a{font-size:10px;padding-bottom:6px;}
+
+    .intro{padding:42px 0 44px;gap:28px;}
+
+    .name{
+      font-size:clamp(70px,25vw,118px);
+      line-height:.86;
+    }
+
+    .role{margin-top:13px;font-size:20px;}
+
+    .intro-copy p{font-size:17px;line-height:1.36;}
+    .more-link{margin-top:20px;font-size:12px;}
+
+    .work-heading{gap:12px;margin-bottom:14px;}
+    .work-heading h2{font-size:11px;}
+
+    .projects-grid{grid-template-columns:1fr;gap:12px;}
+
+    .project-card:nth-child(1),
+    .project-card:nth-child(2),
+    .project-card:nth-child(n+3),
+    .project-card:last-child{
+      grid-column:auto;
+      aspect-ratio:1.45/1;
+      min-height:220px;
+    }
+
+    .project-number{top:14px;left:14px;font-size:18px;}
+    .project-meta{left:14px;right:14px;bottom:13px;}
+    .project-title{font-size:15px;}
+    .project-brand{font-size:12px;}
+    .project-arrow{font-size:26px;}
+
+    .site-footer{
+      align-items:flex-start;
+      flex-direction:column;
+      gap:14px;
+      margin-top:48px;
+      padding-top:16px;
+      font-size:10px;
+    }
+
+    .footer-links{
+      justify-content:flex-start;
+      gap:18px;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+  <header class="site-header">
+    <a class="brand-mark" href="/" aria-label="Hugh Opie home">
+      <img src="favicon.png" alt="">
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/" class="active">Work</a>
+      <a href="/side-quests">Side Quests</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="intro" aria-labelledby="page-title">
+    <div>
+      <h1 class="name" id="page-title">Hugh Opie</h1>
+      <p class="role">Junior Copywriter</p>
+    </div>
+
+    <div class="intro-copy">
+      <p>I’m a junior copywriter with a background in design, currently interning at Rare in Perth. Moving to Canada soon and looking for junior opportunities in Vancouver.</p>
+      <a class="more-link" href="/about">More about me <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="selected-work-title">
+    <div class="work-heading">
+      <h2 id="selected-work-title">Selected Work</h2>
+      <div class="line" aria-hidden="true"></div>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+  </section>
+
+  <footer class="site-footer">
+    <span>© <span id="footerYear"></span> Hugh Opie</span>
+    <div class="footer-links">
+      <a href="mailto:hugh@hopie.com.au">Email</a>
+      <a href="https://www.linkedin.com/in/hugh-opie" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="Hugh_Opie_Resume.pdf" download>Résumé</a>
+    </div>
+  </footer>
+</main>
+
+<script src="projects.js"></script>
+<script>
+  const projectsGrid = document.getElementById('projectsGrid');
+
+  function escapeHTML(value){
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function projectUrl(project){
+    return `project.html?id=${encodeURIComponent(project.id)}`;
+  }
+
+  function projectCardImage(project){
+    return project.homeImage || project.fullImage || project.thumbImage || '';
+  }
+
+  function renderProjects(){
+    if (!Array.isArray(projects) || !projects.length){
+      projectsGrid.innerHTML = '';
+      return;
+    }
+
+    projectsGrid.innerHTML = projects.map((project, index) => {
+      const number = String(project.id || index + 1).padStart(2, '0');
+      const title = escapeHTML(project.title || 'Untitled Project');
+      const category = escapeHTML(project.category || '');
+      const image = escapeHTML(projectCardImage(project));
+      const url = projectUrl(project);
+
+      return `
+        <a class="project-card" href="${url}" aria-label="View ${title}">
+          <img src="${image}" alt="${title}" loading="${index < 2 ? 'eager' : 'lazy'}">
+          <span class="project-number">${number}</span>
+          <span class="project-meta">
+            <span>
+              <span class="project-title">${title}</span>
+              ${category ? `<span class="project-brand">${category}</span>` : ''}
+            </span>
+            <span class="project-arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      `;
+    }).join('');
+  }
+
+  renderProjects();
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  if(sessionStorage.getItem('portfolioUnlocked') !== 'true'){
+    window.location.replace('/');
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">Project — Hugh Opie</title>
@@ -607,6 +612,12 @@
 
 <script src="projects.js"></script>
 <script>
+  if(sessionStorage.getItem('portfolioUnlocked') !== 'true'){
+    window.location.replace('/');
+  }
+
+  
+
   const params = new URLSearchParams(window.location.search);
   const requestedId = params.get('id');
 

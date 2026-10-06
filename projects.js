@@ -26,6 +26,8 @@
 const projects = [
 
   {
+
+    
     id: "01",
     title: "Baggage Claims",
     subheading: "BRANDING / PERTH",
