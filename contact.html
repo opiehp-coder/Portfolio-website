@@ -39,8 +39,9 @@
     width:100%;
     max-width:1600px;
     min-height:100vh;
+    min-height:100svh;
     margin:0 auto;
-    padding:20px var(--page-pad) 34px;
+    padding:20px var(--page-pad) 22px;
     display:flex;
     flex-direction:column;
   }
@@ -51,7 +52,7 @@
     align-items:flex-start;
     justify-content:space-between;
     gap:32px;
-    min-height:82px;
+    min-height:72px;
   }
 
   .brand-mark{
@@ -107,30 +108,31 @@
 
   /* ---------- HERO ---------- */
   .contact-hero{
+    flex:1 1 auto;
     display:grid;
-    grid-template-columns:minmax(0,1.75fr) minmax(340px,1fr);
-    gap:clamp(54px,8vw,130px);
-    align-items:start;
-    padding:22px 0 54px;
+    grid-template-columns:minmax(0,1.6fr) minmax(360px,.9fr);
+    gap:clamp(64px,9vw,150px);
+    align-items:center;
+    padding:clamp(44px,6vh,88px) 0 clamp(54px,7vh,100px);
   }
 
   .contact-title{
+    display:flex;
+    flex-direction:column;
+    gap:.10em;
     font-family:'Anton','Arial Narrow',Impact,sans-serif;
-    font-size:clamp(104px,13vw,205px);
-    line-height:.92;
+    font-size:clamp(112px,14.2vw,220px);
+    line-height:.86;
     font-weight:400;
-    letter-spacing:0;
+    letter-spacing:-.012em;
     text-transform:uppercase;
   }
-
-  .contact-title{display:flex;flex-direction:column;gap:.06em;}
 
   .contact-title span{display:block;}
 
   .hero-links{
     justify-self:end;
-    width:min(100%,500px);
-    padding-top:9px;
+    width:min(100%,470px);
   }
 
   .hero-links-label{
@@ -149,7 +151,7 @@
     align-items:center;
     justify-content:space-between;
     gap:20px;
-    padding:15px 0;
+    padding:17px 0;
     border-bottom:1px solid rgba(20,80,200,.22);
     text-decoration:none;
     color:var(--black);
@@ -182,11 +184,12 @@
 
   /* ---------- FOOTER ---------- */
   .site-footer{
+    flex:0 0 auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:24px;
-    padding:17px 0 4px;
+    gap:28px;
+    padding:18px 0 2px;
     border-top:1px solid var(--line);
     font-family:'Montserrat',Arial,sans-serif;
     font-size:11px;
@@ -200,7 +203,8 @@
   .footer-links{
     display:flex;
     align-items:center;
-    gap:22px;
+    justify-content:flex-end;
+    gap:26px;
     flex-wrap:wrap;
   }
 
@@ -223,8 +227,9 @@
   @media (max-width:1180px){
     .contact-hero{
       grid-template-columns:1fr;
-      gap:30px;
-      padding-top:12px;
+      gap:38px;
+      align-content:center;
+      padding:42px 0 64px;
     }
 
     .contact-title{
@@ -240,12 +245,12 @@
 
   /* ---------- MOBILE ---------- */
   @media (max-width:680px){
-    .page{padding:18px 18px 28px;}
+    .page{padding:18px 18px 20px;}
 
     .site-header{
       min-height:auto;
       align-items:center;
-      margin-bottom:26px;
+      margin-bottom:0;
     }
 
     .brand-mark{width:42px;height:42px;}
@@ -262,22 +267,31 @@
     }
 
     .contact-hero{
-      gap:24px;
-      padding:8px 0 38px;
+      flex:0 0 auto;
+      gap:34px;
+      padding:42px 0 56px;
     }
 
     .contact-title{
-      font-size:clamp(72px,24vw,118px);
-      line-height:.92;
+      gap:.08em;
+      font-size:clamp(76px,24vw,118px);
+      line-height:.88;
     }
 
-    .hero-link{font-size:16px;}
-
+    .hero-links{width:100%;}
+    .hero-link{padding:16px 0;font-size:16px;}
 
     .site-footer{
       align-items:flex-start;
       flex-direction:column;
+      gap:14px;
+      padding-top:16px;
       font-size:10px;
+    }
+
+    .footer-links{
+      justify-content:flex-start;
+      gap:18px;
     }
   }
 
