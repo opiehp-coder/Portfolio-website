@@ -326,18 +326,15 @@
     /*
       TEMPORARY PORTFOLIO LOCK
 
-      IMPORTANT:
-      This is only a casual client-side lock.
-      The password can be discovered by someone inspecting the source code.
-
-      1. Change the password below.
-      2. Rename your current portfolio homepage to work.html.
-      3. Save this file as index.html.
+      The plain-text password is not stored in this file.
+      This still is not true server-side security: a technical user could
+      bypass a client-side lock. It is suitable as a casual renovation gate.
     */
 
-    const correctPassword = "goodadsplease";
+    const correctHash = "3493e099abdc3d9f39fb0d0580a8567b24bde129de8c910dafafe45f2c54e849";
 
-    const unlocked = sessionStorage.getItem('portfolioUnlocked') === 'true';
+    const unlocked =
+      sessionStorage.getItem('portfolioUnlocked') === 'true';
 
     if(unlocked){
       window.location.replace('work.html');
@@ -346,19 +343,31 @@
     document.getElementById('year').textContent =
       new Date().getFullYear();
 
+    async function hashPassword(password){
+      const data = new TextEncoder().encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+      return Array.from(new Uint8Array(hashBuffer))
+        .map(byte => byte.toString(16).padStart(2, '0'))
+        .join('');
+    }
+
     document
       .getElementById('passwordForm')
-      .addEventListener('submit', function(event){
+      .addEventListener('submit', async function(event){
 
         event.preventDefault();
 
         const enteredPassword =
           document.getElementById('password').value;
 
+        const enteredHash =
+          await hashPassword(enteredPassword);
+
         const error =
           document.getElementById('errorMessage');
 
-        if(enteredPassword === correctPassword){
+        if(enteredHash === correctHash){
 
           sessionStorage.setItem(
             'portfolioUnlocked',
