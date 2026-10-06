@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -98,15 +99,22 @@
       padding:clamp(48px,7vh,96px) 0;
     }
 
-    h1{
+    .renovation-title{
       max-width:1150px;
       color:var(--blue);
       font-family:'Anton','Arial Narrow',Impact,sans-serif;
       font-size:clamp(80px,13vw,210px);
-      line-height:.82;
       font-weight:400;
       text-transform:uppercase;
       letter-spacing:-.02em;
+      display:flex;
+      flex-direction:column;
+      gap:clamp(10px,1.2vw,22px);
+    }
+
+    .renovation-title span{
+      display:block;
+      line-height:.9;
     }
 
     .bottom-grid{
@@ -232,8 +240,9 @@
         padding:52px 0 60px;
       }
 
-      h1{
+      .renovation-title{
         font-size:clamp(70px,23vw,125px);
+        gap:10px;
       }
 
       .bottom-grid{
@@ -257,7 +266,7 @@
   <main class="page">
 
     <div class="top">
-      <a class="logo" href="index.html" aria-label="Hugh Opie">
+      <a class="logo" href="/" aria-label="Hugh Opie">
         <img src="favicon.png" alt="">
       </a>
 
@@ -268,10 +277,10 @@
 
     <section class="content">
 
-      <h1>
-        Currently<br>
-        Under<br>
-        Renovations
+      <h1 class="renovation-title">
+        <span>Currently</span>
+        <span>Under</span>
+        <span>Renovations</span>
       </h1>
 
       <div class="bottom-grid">
