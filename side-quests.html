@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <script>
-  if(sessionStorage.getItem('portfolioUnlocked') !== 'true'){
-    window.location.replace('/');
-  }
-</script>
+    if(sessionStorage.getItem('portfolioUnlocked') !== 'true'){
+      window.location.replace('index.html');
+    }
+  </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Side Quests — Hugh Opie</title>
@@ -373,15 +374,15 @@
 
 <main class="page">
   <header class="site-header">
-    <a class="brand-mark" href="/" aria-label="Hugh Opie home">
+    <a class="brand-mark" href="work.html" aria-label="Hugh Opie home">
       <img src="favicon.png" alt="">
     </a>
 
     <nav class="nav" aria-label="Primary navigation">
-      <a href="/">Work</a>
-      <a href="/side-quests" class="active" aria-current="page">Side Quests</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <a href="work.html">Work</a>
+      <a href="side-quests.html" class="active" aria-current="page">Side Quests</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
