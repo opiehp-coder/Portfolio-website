@@ -50,6 +50,8 @@
 
   /* ---------- HEADER ---------- */
   .site-header{
+    position:relative;
+    z-index:100;
     display:flex;
     align-items:flex-start;
     justify-content:space-between;
@@ -58,6 +60,8 @@
   }
 
   .brand-mark{
+    position:relative;
+    z-index:101;
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -65,6 +69,8 @@
     height:52px;
     flex:0 0 auto;
     text-decoration:none;
+    cursor:pointer;
+    pointer-events:auto;
   }
 
   .brand-mark img{
@@ -72,6 +78,7 @@
     height:100%;
     display:block;
     object-fit:contain;
+    pointer-events:none;
   }
 
   .nav{
@@ -505,7 +512,7 @@
 
 <main class="page">
   <header class="site-header">
-    <a class="brand-mark" href="work.html" aria-label="Hugh Opie home">
+    <a class="brand-mark" href="work.html" aria-label="Back to work">
       <img src="favicon.png" alt="">
     </a>
 
