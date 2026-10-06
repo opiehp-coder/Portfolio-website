@@ -13,10 +13,10 @@
    insight     – THE INSIGHT
    idea        – THE IDEA
 
-   thumbImage  – homepage image
-   fullImage   – main image at top of project page
+   thumbImage  – homepage thumbnail
+   fullImage   – larger project/homepage image if needed
 
-   gallery     – additional executions
+   gallery     – project executions
    src         – image
    label       – OOH / PRINT / SOCIAL / PR / FILM etc.
 
@@ -27,17 +27,19 @@ const projects = [
 
   {
     id: "01",
-    title: "The Test",
+    title: "Baggage Claims",
     subheading: "BRANDING / PERTH",
 
     category: "July Luggage",
     briefType: "Spec Work",
-    role: "Designer",
-    year: "2023",
+    role: "Creative",
+    year: "2026",
 
-    problem: "x",
-    insight: "y",
-    idea: "z",
+    problem: "Airline baggage gets absolutely beaten up behind the scenes, and travellers rarely know what actually happened to it.",
+
+    insight: "When people don’t know what happened to their luggage, they start making up their own theories. Usually ridiculous ones.",
+
+    idea: "Create a social series where July takes real travellers’ baggage theories and puts them to the test on its own suitcases. Each claim gets recreated in a stark white lab, no matter how ridiculous it is.",
 
     thumbImage: "images/nk_logo.jpg",
     fullImage: "images/nk_card.jpg",
@@ -45,23 +47,23 @@ const projects = [
     gallery: [
       {
         src: "images/nk_logo.jpg",
-        label: "BRANDING"
+        label: ""
       },
       {
         src: "images/nk_truck.jpg",
-        label: "BRANDING"
+        label: ""
       },
       {
         src: "images/nk_cup.jpg",
-        label: "PACKAGING"
+        label: ""
       },
       {
         src: "images/nk_shirt.jpg",
-        label: "MERCH"
+        label: ""
       }
     ],
 
-    description: "A popular lunch item in Perth is a Conti Roll. This long crusty roll is filled with Italian deli meats, pickled vegetables and sliced cheese. The issue for Curtin University students is that there are none sold on campus. This is why I have created the Nonna’s Kitchen food truck to feed these students."
+    description: ""
   },
 
 
@@ -75,11 +77,12 @@ const projects = [
     role: "Designer",
     year: "2025",
 
-    problem: "",
-    insight: "",
-    idea: "",
+    problem: "x",
+    insight: "y",
+    idea: "z",
 
     thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812680/portfolio_logo_hidden_treasure_vqhurb.svg",
+
     fullImage: "images/ht_three.jpg",
 
     gallery: [
@@ -124,6 +127,7 @@ const projects = [
     idea: "",
 
     thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810964/biggie_slice_logo_r5oe1o.jpg",
+
     fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810964/biggie_slice_logo_r5oe1o.jpg",
 
     gallery: [
@@ -164,6 +168,7 @@ const projects = [
     idea: "",
 
     thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785809457/award_school_logo_j3pd4d.jpg",
+
     fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812591/award-group_znuz50.jpg",
 
     gallery: [
@@ -268,6 +273,7 @@ const projects = [
     idea: "",
 
     thumbImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785812907/Liquid-Death-Logo_xrecg8.jpg",
+
     fullImage: "https://res.cloudinary.com/owbjvb3x/image/upload/v1785810596/liquid_death_nyd2qv.jpg",
 
     gallery: [],

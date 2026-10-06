@@ -153,23 +153,6 @@
 
   .project-count .current{color:var(--blue);}
 
-  /* ---------- MAIN VISUAL FIRST ---------- */
-  .hero-media{
-    position:relative;
-    width:100%;
-    overflow:hidden;
-    background:#e8ebef;
-    cursor:pointer;
-  }
-
-  .hero-media img{
-    display:block;
-    width:100%;
-    height:auto;
-    max-height:78vh;
-    object-fit:contain;
-  }
-
   /* ---------- PROJECT INTRO ---------- */
   .project-intro{
     padding:clamp(32px,4.2vw,68px) 0 32px;
@@ -505,8 +488,6 @@
     .project-tools-right{gap:16px;}
     .all-work,.next-project,.project-count{font-size:10px;}
 
-    .hero-media img{max-height:none;}
-
     .project-intro{padding:28px 0 24px;}
     .project-title{font-size:clamp(62px,18vw,108px);line-height:.88;}
     .project-subline{font-size:10px;margin-top:12px;}
@@ -555,7 +536,7 @@
   </header>
 
   <div class="project-tools">
-    <a class="all-work" href="/"><span class="arrow" aria-hidden="true">←</span> All Work</a>
+    <a class="all-work" id="prevTop" href="/" aria-label="Previous project"><span class="arrow" aria-hidden="true">←</span> Previous</a>
 
     <div class="project-tools-right">
       <div class="project-count" id="projectCount"></div>
@@ -564,12 +545,6 @@
       </a>
     </div>
   </div>
-
-  <!-- Main project visual comes first, like the reference site -->
-  <section class="hero-media" id="heroMedia" aria-label="Main project visual">
-    <img id="heroImage" src="" alt="">
-    <div id="heroBadgeSlot"></div>
-  </section>
 
   <header class="project-intro">
     <h1 class="project-title" id="projectTitle">Loading…</h1>
@@ -637,6 +612,7 @@
 
   const project = projects.find(p => p.id === requestedId) || projects[0];
   const projectIndex = projects.findIndex(p => p.id === project.id);
+  const previousProject = projects[(projectIndex - 1 + projects.length) % projects.length];
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   function galleryItemSrc(item){
@@ -685,6 +661,10 @@
   document.getElementById('projectSubline').textContent = `${project.category || ''}${project.category && project.year ? ' / ' : ''}${project.year || ''}`;
   document.getElementById('projectCount').innerHTML = `<span class="current">${String(projectIndex + 1).padStart(2,'0')}</span> / ${String(projects.length).padStart(2,'0')}`;
 
+  const previousUrl = `project.html?id=${encodeURIComponent(previousProject.id)}`;
+  document.getElementById('prevTop').href = previousUrl;
+  document.getElementById('prevTop').setAttribute('aria-label',`Previous project: ${previousProject.title}`);
+
   const nextUrl = `project.html?id=${encodeURIComponent(nextProject.id)}`;
   document.getElementById('nextTop').href = nextUrl;
   document.getElementById('nextTop').setAttribute('aria-label',`Next project: ${nextProject.title}`);
@@ -692,11 +672,6 @@
   document.getElementById('nextFooterTitle').textContent = nextProject.title;
   document.getElementById('nextFooterArrow').href = nextUrl;
   document.getElementById('nextFooterArrow').setAttribute('aria-label',`Next project: ${nextProject.title}`);
-
-  const heroImage = document.getElementById('heroImage');
-  heroImage.src = project.fullImage;
-  heroImage.alt = `${project.title} main visual`;
-  document.getElementById('heroBadgeSlot').innerHTML = badgeHTML(project.award || null);
 
   /* If projects.js contains problem / insight / idea, those are shown exactly.
      Until those fields are added, the existing description is preserved rather
@@ -748,7 +723,7 @@
     executionsSection.hidden = true;
   } else {
     galleryGrid.innerHTML = gallery.map((item,index) => `
-      <figure class="gallery-item" data-lightbox-index="${index + 1}">
+      <figure class="gallery-item" data-lightbox-index="${index}">
         <div class="gallery-image-wrap" style="position:relative;">
           <img src="${galleryItemSrc(item)}" alt="${escapeHTML(project.title)}${galleryItemLabel(item) ? ' — ' + escapeHTML(galleryItemLabel(item)) : ''}" loading="lazy">
           ${badgeHTML(galleryItemAward(item),'badge-pill--sm')}
@@ -775,7 +750,7 @@
   }
 
   /* ---------- LIGHTBOX ---------- */
-  const lightboxImages = [project.fullImage,...gallery.map(galleryItemSrc)];
+  const lightboxImages = gallery.map(galleryItemSrc);
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCounter = document.getElementById('lightboxCounter');
@@ -807,8 +782,6 @@
     lightboxIndex = (lightboxIndex + direction + lightboxImages.length) % lightboxImages.length;
     renderLightbox();
   }
-
-  document.getElementById('heroMedia').addEventListener('click',() => openLightbox(0));
 
   document.addEventListener('click',(event) => {
     const target = event.target.closest('[data-lightbox-index]');
