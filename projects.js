@@ -29,7 +29,7 @@ const projects = [
 
     
     id: "01",
-    title: "Baggage Claims",
+    title: "Baggage Claims Check",
     subheading: "BRANDING / PERTH",
 
     category: "Samsonite Luggage",
