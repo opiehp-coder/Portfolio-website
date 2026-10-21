@@ -32,7 +32,7 @@ const projects = [
     title: "Baggage Claims",
     subheading: "BRANDING / PERTH",
 
-    category: "July Luggage",
+    category: "Samsonite Luggage",
     briefType: "Spec Work",
     role: "Creative",
     year: "2026",
